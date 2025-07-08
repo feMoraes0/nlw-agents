@@ -5,6 +5,7 @@ import {
   serializerCompiler,
 } from "fastify-type-provider-zod";
 import { fastifyCors } from "@fastify/cors";
+import { env } from "./env.ts";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -15,6 +16,6 @@ app.register(fastifyCors, {
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: env.PORT }).then(() => {
   console.log("Server is running!");
 });
