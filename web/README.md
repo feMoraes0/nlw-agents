@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
+# NLW Agents Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application for managing and joining rooms. Built with Vite, React Router, TanStack Query, and TailwindCSS.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  ├── app.tsx            # Main app component with routing
+  ├── main.tsx           # Entry point
+  ├── index.css          # Global styles (TailwindCSS)
+  ├── lib/
+  │   └── utils.ts       # Utility functions
+  ├── pages/
+  │   ├── create-room.tsx# Room listing and navigation
+  │   └── room.tsx       # Room details page
+  └── vite-env.d.ts      # Vite environment types
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React**: UI library
+- **React Router DOM**: Routing
+- **TanStack React Query**: Data fetching and caching
+- **TailwindCSS**: Utility-first CSS framework
+- **clsx**: Conditional class names
+- **tailwind-merge**: Merge Tailwind classes
+- **lucide-react**: Icon library
+- **tw-animate-css**: Tailwind animation utilities
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Dev Dependencies
+
+- **Vite**: Build tool
+- **TypeScript**: Type safety
+- **ESLint**: Linting
+- **@vitejs/plugin-react**: React support for Vite
+
+## Usage
+
+### Install dependencies
+
+```bash
+npm install
 ```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Lint code
+
+```bash
+npm run lint
+```
+
+## Features
+
+- List available rooms
+- Navigate to room details
+- Responsive UI with TailwindCSS
+- Data fetching with React Query
+
+## API
+
+The app expects a backend running at `http://localhost:3333` with the following endpoint:
+
+- `GET /rooms`: Returns an array of rooms `{ id, name }`
+
+## Customization
+
+- Update styles in `src/index.css`
+- Add new pages in `src/pages/`
+- Extend API calls in `src/pages/create-room.tsx` and `src/pages/room.tsx`
+
+## License
+
+MIT
