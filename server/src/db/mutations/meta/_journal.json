@@ -8,6 +8,13 @@
       "when": 1751993865427,
       "tag": "0000_daffy_ultimates",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752429538546,
+      "tag": "0001_safe_jack_flag",
+      "breakpoints": true
     }
   ]
 }
