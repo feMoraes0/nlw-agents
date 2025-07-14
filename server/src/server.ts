@@ -9,6 +9,7 @@ import { env } from "./env.ts";
 import { getRoomsRoutes } from "./http/routes/get-rooms.ts";
 import { createRoomRoutes } from "./http/routes/create-room.ts";
 import { getRoomQuestionsRoutes } from "./http/routes/get-room-questions.ts";
+import { createQuestionRoutes } from "./http/routes/create-question.ts";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -22,6 +23,7 @@ app.setSerializerCompiler(serializerCompiler);
 app.register(getRoomsRoutes);
 app.register(createRoomRoutes);
 app.register(getRoomQuestionsRoutes);
+app.register(createQuestionRoutes);
 
 app.listen({ port: env.PORT }).then(() => {
   console.log("Server is running!");

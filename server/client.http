@@ -20,5 +20,16 @@ Content-Type: application/json
 @roomId = {{createRoom.response.body.$.roomId}}
 
 ###
+
 # Get questions
 GET {{baseUrl}}/room/{{roomId}}/questions
+
+###
+
+# Create question
+POST {{baseUrl}}/room/{{roomId}}/questions
+Content-Type: application/json
+
+{
+  "question": "testing question"
+}
