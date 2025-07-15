@@ -43,6 +43,7 @@ const CreateRoomForm = () => {
     description,
   }: CreateRoomFormType) => {
     await createRoom({ name, description });
+    createRoomForm.reset();
   };
 
   return (
