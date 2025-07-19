@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
+import { useCreateQuestion } from "@/http/use-create-question";
 
 // Esquema de validação no mesmo arquivo conforme solicitado
 const createQuestionSchema = z.object({
@@ -30,11 +31,13 @@ const createQuestionSchema = z.object({
 
 type CreateQuestionFormData = z.infer<typeof createQuestionSchema>;
 
-interface QuestionFormProps {
+type QuestionFormProps = {
   roomId: string;
-}
+};
 
 export function QuestionForm({ roomId }: QuestionFormProps) {
+  const { mutateAsync: createQuestion } = useCreateQuestion(roomId);
+
   const form = useForm<CreateQuestionFormData>({
     resolver: zodResolver(createQuestionSchema),
     defaultValues: {
@@ -43,8 +46,7 @@ export function QuestionForm({ roomId }: QuestionFormProps) {
   });
 
   async function handleCreateQuestion(data: CreateQuestionFormData) {
-    console.log(roomId);
-    console.log(data);
+    await createQuestion(data);
   }
 
   const { isSubmitting } = form.formState;
