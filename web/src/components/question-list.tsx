@@ -1,12 +1,13 @@
+import { useRoomQuestions } from "@/http/use-rooms-questions";
 import { QuestionItem } from "./question-item";
 
-interface QuestionListProps {
+type QuestionListProps = {
   roomId: string;
-}
+};
 
 export function QuestionList({ roomId }: QuestionListProps) {
-  const data: Array<{ id: ""; question: ""; createdAt: "" }> = [];
-  console.log(roomId);
+  const { data } = useRoomQuestions(roomId);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
