@@ -15,6 +15,13 @@
       "when": 1752429538546,
       "tag": "0001_safe_jack_flag",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1753009463093,
+      "tag": "0002_handy_landau",
+      "breakpoints": true
     }
   ]
 }
